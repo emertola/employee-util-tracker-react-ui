@@ -1,15 +1,7 @@
-import { Button } from '@/components/ui/button';
+import BaseLayout from "./BaseLayout";
 
 function App() {
-  return (
-    <>
-      <div>
-        <Button size="sm" className="text-sm py-1 leading-3">
-          Click me
-        </Button>
-      </div>
-    </>
-  );
+  return <BaseLayout />;
 }
 
 export default App;
