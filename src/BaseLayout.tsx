@@ -1,4 +1,12 @@
-import { Bell, CircleUser, Home, Menu, Package2, Search } from 'lucide-react';
+import {
+  Bell,
+  CircleUser,
+  Home,
+  Menu,
+  Package2,
+  Search,
+  UsersRound,
+} from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 
@@ -46,6 +54,12 @@ const BaseLayout: FC = () => {
                 <Home className="h-4 w-4" />
                 Dashboard
               </Button>
+              <Button
+                variant="link"
+                className="flex items-center justify-start gap-3 rounded-lg px-3 py-2 transition-all hover:text-primary hover:no-underline hover:bg-slate-200">
+                <UsersRound className="h-4 w-4" />
+                Users
+              </Button>
             </nav>
           </div>
         </div>
@@ -75,6 +89,12 @@ const BaseLayout: FC = () => {
                   className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 hover:text-foreground hover:no-underline hover:bg-slate-200">
                   <Home className="h-4 w-4" />
                   Dashboard
+                </Button>
+                <Button
+                  variant="link"
+                  className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 hover:text-foreground hover:no-underline hover:bg-slate-200">
+                  <UsersRound className="h-4 w-4" />
+                  Users
                 </Button>
               </nav>
               <div className="mt-auto">
