@@ -28,8 +28,13 @@ import {
 import { Input } from '@/components/ui/input';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { FC } from 'react';
+import { NavLink, Outlet } from 'react-router-dom';
 
 const BaseLayout: FC = () => {
+  const classNames = (...classes: string[]) => {
+    return classes.filter(Boolean).join(' ');
+  };
+
   return (
     <div className="grid min-h-screen w-full md:grid-cols-[220px_1fr] lg:grid-cols-[280px_1fr]">
       <div className="hidden border-r bg-muted/40 md:block">
@@ -48,18 +53,28 @@ const BaseLayout: FC = () => {
           </div>
           <div className="flex-1">
             <nav className="grid items-start px-2 text-sm font-medium lg:px-4">
-              <Button
-                variant="link"
-                className="flex items-center justify-start gap-3 rounded-lg px-3 py-2 transition-all hover:text-primary hover:no-underline hover:bg-slate-200">
+              <NavLink
+                to="./dashboard"
+                className={({ isActive }) =>
+                  classNames(
+                    'flex items-center justify-start gap-3 rounded-lg px-3 py-2 transition-all hover:text-primary hover:no-underline hover:bg-slate-200',
+                    isActive ? 'bg-sky-100' : ''
+                  )
+                }>
                 <Home className="h-4 w-4" />
                 Dashboard
-              </Button>
-              <Button
-                variant="link"
-                className="flex items-center justify-start gap-3 rounded-lg px-3 py-2 transition-all hover:text-primary hover:no-underline hover:bg-slate-200">
+              </NavLink>
+              <NavLink
+                to="./users"
+                className={({ isActive }) =>
+                  classNames(
+                    'flex items-center justify-start gap-3 rounded-lg px-3 py-2 transition-all hover:text-primary hover:no-underline hover:bg-slate-200',
+                    isActive ? 'bg-sky-100' : ''
+                  )
+                }>
                 <UsersRound className="h-4 w-4" />
                 Users
-              </Button>
+              </NavLink>
             </nav>
           </div>
         </div>
@@ -78,6 +93,7 @@ const BaseLayout: FC = () => {
             </SheetTrigger>
             <SheetContent side="left" className="flex flex-col">
               <nav className="grid gap-2 text-lg font-medium">
+                <NavLink to="/" />
                 <Button
                   variant="link"
                   className="flex items-center gap-2 text-lg font-semibold hover:no-underline">
@@ -146,7 +162,7 @@ const BaseLayout: FC = () => {
         </header>
         <main className="flex flex-1 flex-col gap-4 p-4 lg:gap-6 lg:p-6">
           <div className="flex items-center">
-            <h1 className="text-lg font-semibold md:text-2xl">Content here</h1>
+            <Outlet />
           </div>
         </main>
       </div>
