@@ -34,6 +34,10 @@ const RootApp: FC = () => {
           element: <h1>Users</h1>,
         },
         {
+          path: 'projects',
+          element: <h1>Projects</h1>,
+        },
+        {
           path: '*',
           element: <h1>Not found</h1>,
         },

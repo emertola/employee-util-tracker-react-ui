@@ -1,6 +1,7 @@
 import {
   Bell,
   CircleUser,
+  Folders,
   Home,
   Menu,
   Package2,
@@ -9,14 +10,6 @@ import {
 } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
-
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -75,6 +68,17 @@ const BaseLayout: FC = () => {
                 <UsersRound className="h-4 w-4" />
                 Users
               </NavLink>
+              <NavLink
+                to="./projects"
+                className={({ isActive }) =>
+                  classNames(
+                    'flex items-center justify-start gap-3 rounded-lg px-3 py-2 transition-all hover:text-primary hover:no-underline hover:bg-slate-200',
+                    isActive ? 'bg-sky-100' : ''
+                  )
+                }>
+                <Folders className="h-4 w-4" />
+                Projects
+              </NavLink>
             </nav>
           </div>
         </div>
@@ -96,39 +100,29 @@ const BaseLayout: FC = () => {
                 <NavLink to="/" />
                 <Button
                   variant="link"
-                  className="flex items-center gap-2 text-lg font-semibold hover:no-underline">
+                  className="flex items-center justify-start gap-2 text-lg font-semibold hover:no-underline px-0">
                   <Package2 className="h-6 w-6" />
                   <span className="">Logo</span>
                 </Button>
                 <Button
                   variant="link"
-                  className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 hover:text-foreground hover:no-underline hover:bg-slate-200">
+                  className="mx-[-0.65rem] flex items-center justify-start gap-4 rounded-xl px-3 py-2 hover:text-foreground hover:no-underline hover:bg-slate-200">
                   <Home className="h-4 w-4" />
                   Dashboard
                 </Button>
                 <Button
                   variant="link"
-                  className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 hover:text-foreground hover:no-underline hover:bg-slate-200">
+                  className="mx-[-0.65rem] flex items-center justify-start gap-4 rounded-xl px-3 py-2 hover:text-foreground hover:no-underline hover:bg-slate-200">
                   <UsersRound className="h-4 w-4" />
                   Users
                 </Button>
+                <Button
+                  variant="link"
+                  className="mx-[-0.65rem] flex items-center justify-start gap-4 rounded-xl px-3 py-2 hover:text-foreground hover:no-underline hover:bg-slate-200">
+                  <Folders className="h-4 w-4" />
+                  Projects
+                </Button>
               </nav>
-              <div className="mt-auto">
-                <Card>
-                  <CardHeader>
-                    <CardTitle>Upgrade to Pro</CardTitle>
-                    <CardDescription>
-                      Unlock all features and get unlimited access to our
-                      support team.
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <Button size="sm" className="w-full">
-                      Upgrade
-                    </Button>
-                  </CardContent>
-                </Card>
-              </div>
             </SheetContent>
           </Sheet>
           <div className="w-full flex-1">
