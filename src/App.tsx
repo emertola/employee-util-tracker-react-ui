@@ -1,4 +1,4 @@
-import BaseLayout from "./BaseLayout";
+import BaseLayout from './BaseLayout';
 
 function App() {
   return <BaseLayout />;
